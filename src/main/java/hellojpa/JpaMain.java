@@ -17,10 +17,12 @@ public class JpaMain {
         try {
 
             // 영속
-            Member member = em.find(Member.class, 150L);
-            member.setName("zzzz");
+            Member member = new Member(200L, "member200");
+            em.persist(member);
 
-            System.out.println("==========================");
+            em.flush();
+
+            System.out.println("==============================================");
 
 
             /*List<Member> result = em.createQuery("select m from Member as m", Member.class)
