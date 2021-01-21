@@ -16,27 +16,23 @@ public class JpaMain {
 
         try {
 
-            // 영속
-            Member member = em.find(Member.class, 150L);
-            member.setName("AAAAA");
+            Member member = new Member();
+            member.setUsername("C");
 
-//            em.detach(member);
-            em.clear();
+            Member member1 = new Member();
+            member1.setUsername("C");
 
-            Member member2 = em.find(Member.class, 150L);
-
-
-            System.out.println("==============================================");
+            Member member2 = new Member();
+            member2.setUsername("C");
 
 
-            /*List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(1)
-                    .setMaxResults(10)
-                    .getResultList();
-
-            for (Member member : result) {
-                System.out.println("member = " + member.getName());
-            }*/
+            em.persist(member);
+            em.persist(member1);
+            em.persist(member2);
+            System.out.println("member = " + member.getId());
+            System.out.println("member1 = " + member1.getId());
+            System.out.println("member2 = " + member2.getId());
+            System.out.println("JpaMain.main");
 
             tx.commit();
         } catch (Exception e) {
