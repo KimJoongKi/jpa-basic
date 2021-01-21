@@ -15,15 +15,22 @@ public class JpaMain {
         tx.begin();
 
         try {
-//            Member member = em.find(Member.class, 1L);
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+
+            // 영속
+            Member member = em.find(Member.class, 150L);
+            member.setName("zzzz");
+
+            System.out.println("==========================");
+
+
+            /*List<Member> result = em.createQuery("select m from Member as m", Member.class)
                     .setFirstResult(1)
                     .setMaxResults(10)
                     .getResultList();
 
             for (Member member : result) {
                 System.out.println("member = " + member.getName());
-            }
+            }*/
 
             tx.commit();
         } catch (Exception e) {
