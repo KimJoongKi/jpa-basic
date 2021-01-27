@@ -21,8 +21,6 @@ public class JpaMain {
         try {
 
             // 저장
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
 
 
 
